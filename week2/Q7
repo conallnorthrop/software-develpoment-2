@@ -1,0 +1,48 @@
+import org.junit.*;
+import org.junit.runner.*;
+import static org.junit.Assert.*;
+
+public class Main {
+  public static void main(String[] args) {
+
+    double w = Console.getDouble("Enter your weight in kg");
+    double h = Console.getDouble("Enter your height in m");
+    double b = bmiCalculate(w,h);
+    System.out.println(b);
+    System.out.println(bmiCategory(b));
+  }
+
+  public static double bmiCalculate(double weight, double height){
+    if (weight <=0 || height <=0) {
+      return 0;
+    } else {
+        double bmi = weight / (height * height);
+        return bmi;
+
+    }
+    
+
+  }
+
+  public static String bmiCategory(double bmi){
+    String Weight = "0";
+    if (bmi < 15) {
+      Weight = "Starvation";
+    } else if (bmi >= 15 && bmi < 17.5) {
+      Weight = "Anorexic";
+    } else if (bmi >= 17.5 && bmi < 18.5) {
+      Weight = "Underweight";
+    } else if (bmi >= 18.5 && bmi < 25) {
+      Weight = "Ideal";
+    } else if (bmi >= 25 && bmi < 30) {
+      Weight = "Overweight";
+    } else if (bmi >= 30 && bmi < 40) {
+      Weight = "Obese";
+    } else if (bmi >= 40) {
+      Weight = "Morbidly Obses";
+    }
+    return Weight;
+    
+    
+  }
+}
